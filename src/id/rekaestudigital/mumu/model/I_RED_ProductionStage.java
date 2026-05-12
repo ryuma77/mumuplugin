@@ -1,0 +1,377 @@
+/******************************************************************************
+ * Product: iDempiere ERP & CRM Smart Business Solution                       *
+ * Copyright (C) 1999-2012 ComPiere, Inc. All Rights Reserved.                *
+ * This program is free software, you can redistribute it and/or modify it    *
+ * under the terms version 2 of the GNU General Public License as published   *
+ * by the Free Software Foundation. This program is distributed in the hope   *
+ * that it will be useful, but WITHOUT ANY WARRANTY, without even the implied *
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
+ * See the GNU General Public License for more details.                       *
+ * You should have received a copy of the GNU General Public License along    *
+ * with this program, if not, write to the Free Software Foundation, Inc.,    *
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.                     *
+ * For the text or an alternative of this public license, you may reach us    *
+ * ComPiere, Inc., 2620 Augustine Dr. #245, Santa Clara, CA 95054, USA        *
+ * or via info@compiere.org or http://www.compiere.org/license.html           *
+ *****************************************************************************/
+package id.rekaestudigital.mumu.model;
+
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import org.compiere.model.*;
+import org.compiere.util.KeyNamePair;
+
+/** Generated Interface for RED_ProductionStage
+ *  @author iDempiere (generated) 
+ *  @version Release 13
+ */
+@SuppressWarnings("all")
+public interface I_RED_ProductionStage 
+{
+
+    /** TableName=RED_ProductionStage */
+    public static final String Table_Name = "RED_ProductionStage";
+
+    /** AD_Table_ID=1000019 */
+    public static final int Table_ID = MTable.getTable_ID(Table_Name);
+
+    KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
+
+    /** AccessLevel = 3 - Client - Org 
+     */
+    BigDecimal accessLevel = BigDecimal.valueOf(3);
+
+    /** Load Meta Data */
+
+    /** Column name AD_Client_ID */
+    public static final String COLUMNNAME_AD_Client_ID = "AD_Client_ID";
+
+	/** Get Tenant.
+	  * Tenant for this installation.
+	  */
+	public int getAD_Client_ID();
+
+    /** Column name AD_Org_ID */
+    public static final String COLUMNNAME_AD_Org_ID = "AD_Org_ID";
+
+	/** Set Organization.
+	  * Organizational entity within tenant
+	  */
+	public void setAD_Org_ID (int AD_Org_ID);
+
+	/** Get Organization.
+	  * Organizational entity within tenant
+	  */
+	public int getAD_Org_ID();
+
+    /** Column name Created */
+    public static final String COLUMNNAME_Created = "Created";
+
+	/** Get Created.
+	  * Date this record was created
+	  */
+	public Timestamp getCreated();
+
+    /** Column name CreatedBy */
+    public static final String COLUMNNAME_CreatedBy = "CreatedBy";
+
+	/** Get Created By.
+	  * User who created this records
+	  */
+	public int getCreatedBy();
+
+    /** Column name Description */
+    public static final String COLUMNNAME_Description = "Description";
+
+	/** Set Description.
+	  * Optional short description of the record
+	  */
+	public void setDescription (String Description);
+
+	/** Get Description.
+	  * Optional short description of the record
+	  */
+	public String getDescription();
+
+    /** Column name EndDate */
+    public static final String COLUMNNAME_EndDate = "EndDate";
+
+	/** Set End Date.
+	  * Last effective date (inclusive)
+	  */
+	public void setEndDate (Timestamp EndDate);
+
+	/** Get End Date.
+	  * Last effective date (inclusive)
+	  */
+	public Timestamp getEndDate();
+
+    /** Column name Help */
+    public static final String COLUMNNAME_Help = "Help";
+
+	/** Set Comment/Help.
+	  * Comment or Hint
+	  */
+	public void setHelp (String Help);
+
+	/** Get Comment/Help.
+	  * Comment or Hint
+	  */
+	public String getHelp();
+
+    /** Column name Input_Product_ID */
+    public static final String COLUMNNAME_Input_Product_ID = "Input_Product_ID";
+
+	/** Set Input_Product_ID	  */
+	public void setInput_Product_ID (int Input_Product_ID);
+
+	/** Get Input_Product_ID	  */
+	public int getInput_Product_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.compiere.model.I_M_Product getInput_Product() throws RuntimeException;
+
+    /** Column name IsActive */
+    public static final String COLUMNNAME_IsActive = "IsActive";
+
+	/** Set Active.
+	  * The record is active in the system
+	  */
+	public void setIsActive (boolean IsActive);
+
+	/** Get Active.
+	  * The record is active in the system
+	  */
+	public boolean isActive();
+
+    /** Column name M_Locator_ID */
+    public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";
+
+	/** Set Locator.
+	  * Warehouse Locator
+	  */
+	public void setM_Locator_ID (int M_Locator_ID);
+
+	/** Get Locator.
+	  * Warehouse Locator
+	  */
+	public int getM_Locator_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public I_M_Locator getM_Locator() throws RuntimeException;
+
+    /** Column name M_Production_ID */
+    public static final String COLUMNNAME_M_Production_ID = "M_Production_ID";
+
+	/** Set Production.
+	  * Plan for producing a product
+	  */
+	public void setM_Production_ID (int M_Production_ID);
+
+	/** Get Production.
+	  * Plan for producing a product
+	  */
+	public int getM_Production_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.compiere.model.I_M_Production getM_Production() throws RuntimeException;
+
+    /** Column name M_Warehouse_ID */
+    public static final String COLUMNNAME_M_Warehouse_ID = "M_Warehouse_ID";
+
+	/** Set Warehouse.
+	  * Storage Warehouse and Service Point
+	  */
+	public void setM_Warehouse_ID (int M_Warehouse_ID);
+
+	/** Get Warehouse.
+	  * Storage Warehouse and Service Point
+	  */
+	public int getM_Warehouse_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException;
+
+    /** Column name Name */
+    public static final String COLUMNNAME_Name = "Name";
+
+	/** Set Name.
+	  * Alphanumeric identifier of the entity
+	  */
+	public void setName (String Name);
+
+	/** Get Name.
+	  * Alphanumeric identifier of the entity
+	  */
+	public String getName();
+
+    /** Column name Ouput_Product_ID */
+    public static final String COLUMNNAME_Ouput_Product_ID = "Ouput_Product_ID";
+
+	/** Set Ouput_Product_ID	  */
+	public void setOuput_Product_ID (int Ouput_Product_ID);
+
+	/** Get Ouput_Product_ID	  */
+	public int getOuput_Product_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.compiere.model.I_M_Product getOuput_Product() throws RuntimeException;
+
+    /** Column name Processed */
+    public static final String COLUMNNAME_Processed = "Processed";
+
+	/** Set Processed.
+	  * The document has been processed
+	  */
+	public void setProcessed (boolean Processed);
+
+	/** Get Processed.
+	  * The document has been processed
+	  */
+	public boolean isProcessed();
+
+    /** Column name Processing */
+    public static final String COLUMNNAME_Processing = "Processing";
+
+	/** Set Process Now	  */
+	public void setProcessing (boolean Processing);
+
+	/** Get Process Now	  */
+	public boolean isProcessing();
+
+    /** Column name QtyActual */
+    public static final String COLUMNNAME_QtyActual = "QtyActual";
+
+	/** Set QtyActual	  */
+	public void setQtyActual (BigDecimal QtyActual);
+
+	/** Get QtyActual	  */
+	public BigDecimal getQtyActual();
+
+    /** Column name QtyLoss */
+    public static final String COLUMNNAME_QtyLoss = "QtyLoss";
+
+	/** Set QtyLoss	  */
+	public void setQtyLoss (BigDecimal QtyLoss);
+
+	/** Get QtyLoss	  */
+	public BigDecimal getQtyLoss();
+
+    /** Column name QtyTargeted */
+    public static final String COLUMNNAME_QtyTargeted = "QtyTargeted";
+
+	/** Set QtyTargeted	  */
+	public void setQtyTargeted (BigDecimal QtyTargeted);
+
+	/** Get QtyTargeted	  */
+	public BigDecimal getQtyTargeted();
+
+    /** Column name RED_ProductionPlan_ID */
+    public static final String COLUMNNAME_RED_ProductionPlan_ID = "RED_ProductionPlan_ID";
+
+	/** Set RED_ProductionPlan	  */
+	public void setRED_ProductionPlan_ID (int RED_ProductionPlan_ID);
+
+	/** Get RED_ProductionPlan	  */
+	public int getRED_ProductionPlan_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public I_RED_ProductionPlan getRED_ProductionPlan() throws RuntimeException;
+
+    /** Column name RED_ProductionStage_ID */
+    public static final String COLUMNNAME_RED_ProductionStage_ID = "RED_ProductionStage_ID";
+
+	/** Set RED_ProductionStage	  */
+	public void setRED_ProductionStage_ID (int RED_ProductionStage_ID);
+
+	/** Get RED_ProductionStage	  */
+	public int getRED_ProductionStage_ID();
+
+    /** Column name RED_ProductionStage_UU */
+    public static final String COLUMNNAME_RED_ProductionStage_UU = "RED_ProductionStage_UU";
+
+	/** Set RED_ProductionStage_UU	  */
+	public void setRED_ProductionStage_UU (String RED_ProductionStage_UU);
+
+	/** Get RED_ProductionStage_UU	  */
+	public String getRED_ProductionStage_UU();
+
+    /** Column name SeqNo */
+    public static final String COLUMNNAME_SeqNo = "SeqNo";
+
+	/** Set Sequence.
+	  * Method of ordering records;
+ lowest number comes first
+	  */
+	public void setSeqNo (int SeqNo);
+
+	/** Get Sequence.
+	  * Method of ordering records;
+ lowest number comes first
+	  */
+	public int getSeqNo();
+
+    /** Column name StageType */
+    public static final String COLUMNNAME_StageType = "StageType";
+
+	/** Set StageType	  */
+	public void setStageType (String StageType);
+
+	/** Get StageType	  */
+	public String getStageType();
+
+    /** Column name StartDate */
+    public static final String COLUMNNAME_StartDate = "StartDate";
+
+	/** Set Start Date.
+	  * First effective day (inclusive)
+	  */
+	public void setStartDate (Timestamp StartDate);
+
+	/** Get Start Date.
+	  * First effective day (inclusive)
+	  */
+	public Timestamp getStartDate();
+
+    /** Column name Status */
+    public static final String COLUMNNAME_Status = "Status";
+
+	/** Set Status.
+	  * Status of the currently running check
+	  */
+	public void setStatus (String Status);
+
+	/** Get Status.
+	  * Status of the currently running check
+	  */
+	public String getStatus();
+
+    /** Column name Updated */
+    public static final String COLUMNNAME_Updated = "Updated";
+
+	/** Get Updated.
+	  * Date this record was updated
+	  */
+	public Timestamp getUpdated();
+
+    /** Column name UpdatedBy */
+    public static final String COLUMNNAME_UpdatedBy = "UpdatedBy";
+
+	/** Get Updated By.
+	  * User who updated this records
+	  */
+	public int getUpdatedBy();
+
+    /** Column name Value */
+    public static final String COLUMNNAME_Value = "Value";
+
+	/** Set Search Key.
+	  * Search key for the record in the format required - must be unique
+	  */
+	public void setValue (String Value);
+
+	/** Get Search Key.
+	  * Search key for the record in the format required - must be unique
+	  */
+	public String getValue();
+}
