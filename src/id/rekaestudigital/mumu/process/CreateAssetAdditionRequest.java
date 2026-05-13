@@ -128,7 +128,7 @@ public class CreateAssetAdditionRequest extends SvrProcess {
                 setIfColumnExists(request, "ErrorMsg", cut(e.getMessage(), 1900));
                 request.saveEx();
             } catch (Exception ignored) {
-                // jangan menutup error utama
+                // Jangan menutup error utama
             }
 
             throw e;
@@ -140,11 +140,6 @@ public class CreateAssetAdditionRequest extends SvrProcess {
         String registerType = getString(request, "RegisterType");
 
         if (registerType == null || registerType.trim().isEmpty()) {
-            /*
-             * Backward compatibility:
-             * Kalau C_Invoice_ID ada, anggap dari invoice.
-             * Kalau tidak ada, anggap manual.
-             */
             if (request.getC_Invoice_ID() > 0) {
                 return REGISTER_TYPE_INVOICE;
             }
@@ -444,7 +439,6 @@ public class CreateAssetAdditionRequest extends SvrProcess {
 
         asset.setValue(assetNo);
         asset.setName(getString(request, "AssetName"));
-
         asset.setM_Product_ID(M_Product_ID);
 
         if (invoice != null && invoice.getC_BPartner_ID() > 0) {
@@ -514,7 +508,6 @@ public class CreateAssetAdditionRequest extends SvrProcess {
         MAssetAddition addition = new MAssetAddition(getCtx(), 0, get_TrxName());
 
         addition.setAD_Org_ID(request.getAD_Org_ID());
-
         addition.setA_Asset_ID(asset.getA_Asset_ID());
 
         int M_Product_ID = getSourceProductId(request, invoiceLine);
@@ -550,11 +543,7 @@ public class CreateAssetAdditionRequest extends SvrProcess {
 
         addition.setA_QTY_Current(Env.ONE);
 
-        /*
-         * Proses kita tetap manual asset addition.
-         */
         addition.setA_SourceType("MAN");
-
         addition.setPostingType(getAssetPostingType(asset.getA_Asset_ID()));
 
         addition.saveEx();
@@ -665,24 +654,24 @@ public class CreateAssetAdditionRequest extends SvrProcess {
             throw new AdempiereException("Value Product Category belum diisi.");
         }
 
-        String assetGroupValue = DB.getSQLValueStringEx(
+        String assetGroupName = DB.getSQLValueStringEx(
                 get_TrxName(),
-                "SELECT COALESCE(Value, Name) "
+                "SELECT Name "
               + "FROM A_Asset_Group "
               + "WHERE A_Asset_Group_ID=?",
                 A_Asset_Group_ID
         );
 
-        if (assetGroupValue == null || assetGroupValue.trim().isEmpty()) {
-            throw new AdempiereException("Value / Name Asset Group belum diisi.");
+        if (assetGroupName == null || assetGroupName.trim().isEmpty()) {
+            throw new AdempiereException("Name Asset Group belum diisi.");
         }
 
         String yy = new SimpleDateFormat("yy").format(dateAcct);
 
         productCategoryValue = cleanCodePart(productCategoryValue);
-        assetGroupValue = cleanCodePart(assetGroupValue);
+        assetGroupName = cleanCodePart(assetGroupName);
 
-        String prefix = productCategoryValue + "-" + yy + "-" + assetGroupValue + "-";
+        String prefix = productCategoryValue + "-" + yy + "-" + assetGroupName + "-";
 
         int nextNo = getNextAssetRunningNo(prefix);
 
@@ -698,7 +687,7 @@ public class CreateAssetAdditionRequest extends SvrProcess {
               + "WHERE AD_Client_ID=? "
               + "AND Value LIKE ? "
               + "ORDER BY Value DESC "
-              + "FETCH FIRST 1 ROWS ONLY",
+              + "LIMIT 1",
                 getAD_Client_ID(),
                 prefix + "%"
         );
@@ -729,17 +718,6 @@ public class CreateAssetAdditionRequest extends SvrProcess {
         return value.trim()
                 .toUpperCase()
                 .replaceAll("[^A-Z0-9]", "");
-    }
-
-    private String getNextAssetNo() {
-
-        String value = DB.getDocumentNo(getAD_Client_ID(), "A_Asset", get_TrxName());
-
-        if (value == null || value.trim().isEmpty()) {
-            value = "AST-" + System.currentTimeMillis();
-        }
-
-        return value;
     }
 
     private int getInt(PO po, String columnName) {
