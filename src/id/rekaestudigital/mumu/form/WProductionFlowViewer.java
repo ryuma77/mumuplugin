@@ -76,13 +76,7 @@ public class WProductionFlowViewer extends ADForm {
 
         content.getChildren().clear();
 
-        Object obj = planNoEditor.getValue();
-        String value = obj == null ? "" : obj.toString();
-
-        if (value.trim().isEmpty()) {
-            showMessage("Isi Production Plan ID atau Document No.");
-            return;
-        }
+        Object obj = planNoEditor.getValue(); String value = obj == null ? "" : obj.toString(); if (value.trim().isEmpty()) { showMessage("Isi Production Plan ID atau Document No."); return; }
 
         PlanData plan = getPlan(value.trim());
 

@@ -152,6 +152,15 @@ public interface I_RED_AssetAdditionRequest
 	  */
 	public Timestamp getAssetServiceDate();
 
+    /** Column name AssetUnitAmount */
+    public static final String COLUMNNAME_AssetUnitAmount = "AssetUnitAmount";
+
+	/** Set AssetUnitAmount	  */
+	public void setAssetUnitAmount (BigDecimal AssetUnitAmount);
+
+	/** Get AssetUnitAmount	  */
+	public BigDecimal getAssetUnitAmount();
+
     /** Column name C_BPartner_ID */
     public static final String COLUMNNAME_C_BPartner_ID = "C_BPartner_ID";
 
@@ -199,6 +208,22 @@ public interface I_RED_AssetAdditionRequest
 
 	@Deprecated(since="13") // use better methods with cache
 	public org.compiere.model.I_C_DocType getC_DocType() throws RuntimeException;
+
+    /** Column name C_InvoiceLine_ID */
+    public static final String COLUMNNAME_C_InvoiceLine_ID = "C_InvoiceLine_ID";
+
+	/** Set Invoice Line.
+	  * Invoice Detail Line
+	  */
+	public void setC_InvoiceLine_ID (int C_InvoiceLine_ID);
+
+	/** Get Invoice Line.
+	  * Invoice Detail Line
+	  */
+	public int getC_InvoiceLine_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.compiere.model.I_C_InvoiceLine getC_InvoiceLine() throws RuntimeException;
 
     /** Column name C_Invoice_ID */
     public static final String COLUMNNAME_C_Invoice_ID = "C_Invoice_ID";
@@ -341,6 +366,35 @@ public interface I_RED_AssetAdditionRequest
 	  */
 	public boolean isActive();
 
+    /** Column name LineNetAmt */
+    public static final String COLUMNNAME_LineNetAmt = "LineNetAmt";
+
+	/** Set Line Amount.
+	  * Line Extended Amount (Quantity * Actual Price) without Freight and Charges
+	  */
+	public void setLineNetAmt (BigDecimal LineNetAmt);
+
+	/** Get Line Amount.
+	  * Line Extended Amount (Quantity * Actual Price) without Freight and Charges
+	  */
+	public BigDecimal getLineNetAmt();
+
+    /** Column name M_InOutLine_ID */
+    public static final String COLUMNNAME_M_InOutLine_ID = "M_InOutLine_ID";
+
+	/** Set Shipment/Receipt Line.
+	  * Line on Shipment or Receipt document
+	  */
+	public void setM_InOutLine_ID (int M_InOutLine_ID);
+
+	/** Get Shipment/Receipt Line.
+	  * Line on Shipment or Receipt document
+	  */
+	public int getM_InOutLine_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.compiere.model.I_M_InOutLine getM_InOutLine() throws RuntimeException;
+
     /** Column name M_Product_ID */
     public static final String COLUMNNAME_M_Product_ID = "M_Product_ID";
 
@@ -379,6 +433,19 @@ public interface I_RED_AssetAdditionRequest
 	/** Get PostingStatus	  */
 	public String getPostingStatus();
 
+    /** Column name PriceActual */
+    public static final String COLUMNNAME_PriceActual = "PriceActual";
+
+	/** Set Unit Price.
+	  * Actual Price 
+	  */
+	public void setPriceActual (BigDecimal PriceActual);
+
+	/** Get Unit Price.
+	  * Actual Price 
+	  */
+	public BigDecimal getPriceActual();
+
     /** Column name Processed */
     public static final String COLUMNNAME_Processed = "Processed";
 
@@ -414,6 +481,19 @@ public interface I_RED_AssetAdditionRequest
 	/** Get Process Now	  */
 	public boolean isProcessing();
 
+    /** Column name Qty */
+    public static final String COLUMNNAME_Qty = "Qty";
+
+	/** Set Quantity.
+	  * Quantity
+	  */
+	public void setQty (BigDecimal Qty);
+
+	/** Get Quantity.
+	  * Quantity
+	  */
+	public BigDecimal getQty();
+
     /** Column name RED_AssetAdditionRequest_ID */
     public static final String COLUMNNAME_RED_AssetAdditionRequest_ID = "RED_AssetAdditionRequest_ID";
 
@@ -432,6 +512,31 @@ public interface I_RED_AssetAdditionRequest
 	/** Get RED_AssetAdditionRequest_UU	  */
 	public String getRED_AssetAdditionRequest_UU();
 
+    /** Column name RED_InOutLineSerial_ID */
+    public static final String COLUMNNAME_RED_InOutLineSerial_ID = "RED_InOutLineSerial_ID";
+
+	/** Set RED_InOutLineSerial	  */
+	public void setRED_InOutLineSerial_ID (int RED_InOutLineSerial_ID);
+
+	/** Get RED_InOutLineSerial	  */
+	public int getRED_InOutLineSerial_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public I_RED_InOutLineSerial getRED_InOutLineSerial() throws RuntimeException;
+
+    /** Column name SerNo */
+    public static final String COLUMNNAME_SerNo = "SerNo";
+
+	/** Set Serial No.
+	  * Product Serial Number 
+	  */
+	public void setSerNo (String SerNo);
+
+	/** Get Serial No.
+	  * Product Serial Number 
+	  */
+	public String getSerNo();
+
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";
 
@@ -447,4 +552,13 @@ public interface I_RED_AssetAdditionRequest
 	  * User who updated this records
 	  */
 	public int getUpdatedBy();
+
+    /** Column name ViewPosting */
+    public static final String COLUMNNAME_ViewPosting = "ViewPosting";
+
+	/** Set ViewPosting	  */
+	public void setViewPosting (String ViewPosting);
+
+	/** Get ViewPosting	  */
+	public String getViewPosting();
 }

@@ -34,7 +34,7 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20260511L;
+	private static final long serialVersionUID = 20260513L;
 
     /** Standard Constructor */
     public X_RED_AssetAdditionRequest (Properties ctx, int RED_AssetAdditionRequest_ID, String trxName)
@@ -52,7 +52,6 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 			setProcessed (false);
 // N
 			setProcessing (false);
-// N
 			setRED_AssetAdditionRequest_ID (0);
         } */
     }
@@ -73,7 +72,6 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 			setProcessed (false);
 // N
 			setProcessing (false);
-// N
 			setRED_AssetAdditionRequest_ID (0);
         } */
     }
@@ -94,7 +92,6 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 			setProcessed (false);
 // N
 			setProcessing (false);
-// N
 			setRED_AssetAdditionRequest_ID (0);
         } */
     }
@@ -115,7 +112,6 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 			setProcessed (false);
 // N
 			setProcessing (false);
-// N
 			setRED_AssetAdditionRequest_ID (0);
         } */
     }
@@ -161,9 +157,9 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	public void setA_Asset_Addition_ID (int A_Asset_Addition_ID)
 	{
 		if (A_Asset_Addition_ID < 1)
-			set_ValueNoCheck (COLUMNNAME_A_Asset_Addition_ID, null);
+			set_Value (COLUMNNAME_A_Asset_Addition_ID, null);
 		else
-			set_ValueNoCheck (COLUMNNAME_A_Asset_Addition_ID, Integer.valueOf(A_Asset_Addition_ID));
+			set_Value (COLUMNNAME_A_Asset_Addition_ID, Integer.valueOf(A_Asset_Addition_ID));
 	}
 
 	/** Get Asset Addition.
@@ -189,9 +185,9 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	public void setA_Asset_Group_ID (int A_Asset_Group_ID)
 	{
 		if (A_Asset_Group_ID < 1)
-			set_ValueNoCheck (COLUMNNAME_A_Asset_Group_ID, null);
+			set_Value (COLUMNNAME_A_Asset_Group_ID, null);
 		else
-			set_ValueNoCheck (COLUMNNAME_A_Asset_Group_ID, Integer.valueOf(A_Asset_Group_ID));
+			set_Value (COLUMNNAME_A_Asset_Group_ID, Integer.valueOf(A_Asset_Group_ID));
 	}
 
 	/** Get Asset Group.
@@ -239,7 +235,7 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	*/
 	public void setAmount (BigDecimal Amount)
 	{
-		set_ValueNoCheck (COLUMNNAME_Amount, Amount);
+		set_Value (COLUMNNAME_Amount, Amount);
 	}
 
 	/** Get Amount.
@@ -288,7 +284,7 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	*/
 	public void setAssetServiceDate (Timestamp AssetServiceDate)
 	{
-		set_ValueNoCheck (COLUMNNAME_AssetServiceDate, AssetServiceDate);
+		set_Value (COLUMNNAME_AssetServiceDate, AssetServiceDate);
 	}
 
 	/** Get In Service Date.
@@ -297,6 +293,24 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	public Timestamp getAssetServiceDate()
 	{
 		return (Timestamp)get_Value(COLUMNNAME_AssetServiceDate);
+	}
+
+	/** Set AssetUnitAmount.
+		@param AssetUnitAmount AssetUnitAmount
+	*/
+	public void setAssetUnitAmount (BigDecimal AssetUnitAmount)
+	{
+		set_Value (COLUMNNAME_AssetUnitAmount, AssetUnitAmount);
+	}
+
+	/** Get AssetUnitAmount.
+		@return AssetUnitAmount	  */
+	public BigDecimal getAssetUnitAmount()
+	{
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_AssetUnitAmount);
+		if (bd == null)
+			 return Env.ZERO;
+		return bd;
 	}
 
 	@Deprecated(since="13") // use better methods with cache
@@ -312,9 +326,9 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	public void setC_BPartner_ID (int C_BPartner_ID)
 	{
 		if (C_BPartner_ID < 1)
-			set_ValueNoCheck (COLUMNNAME_C_BPartner_ID, null);
+			set_Value (COLUMNNAME_C_BPartner_ID, null);
 		else
-			set_ValueNoCheck (COLUMNNAME_C_BPartner_ID, Integer.valueOf(C_BPartner_ID));
+			set_Value (COLUMNNAME_C_BPartner_ID, Integer.valueOf(C_BPartner_ID));
 	}
 
 	/** Get Business Partner.
@@ -387,6 +401,35 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	}
 
 	@Deprecated(since="13") // use better methods with cache
+	public org.compiere.model.I_C_InvoiceLine getC_InvoiceLine() throws RuntimeException
+	{
+		return (org.compiere.model.I_C_InvoiceLine)MTable.get(getCtx(), org.compiere.model.I_C_InvoiceLine.Table_ID)
+			.getPO(getC_InvoiceLine_ID(), get_TrxName());
+	}
+
+	/** Set Invoice Line.
+		@param C_InvoiceLine_ID Invoice Detail Line
+	*/
+	public void setC_InvoiceLine_ID (int C_InvoiceLine_ID)
+	{
+		if (C_InvoiceLine_ID < 1)
+			set_ValueNoCheck (COLUMNNAME_C_InvoiceLine_ID, null);
+		else
+			set_ValueNoCheck (COLUMNNAME_C_InvoiceLine_ID, Integer.valueOf(C_InvoiceLine_ID));
+	}
+
+	/** Get Invoice Line.
+		@return Invoice Detail Line
+	  */
+	public int getC_InvoiceLine_ID()
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_C_InvoiceLine_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
+	}
+
+	@Deprecated(since="13") // use better methods with cache
 	public org.compiere.model.I_C_Invoice getC_Invoice() throws RuntimeException
 	{
 		return (org.compiere.model.I_C_Invoice)MTable.get(getCtx(), org.compiere.model.I_C_Invoice.Table_ID)
@@ -399,9 +442,9 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	public void setC_Invoice_ID (int C_Invoice_ID)
 	{
 		if (C_Invoice_ID < 1)
-			set_ValueNoCheck (COLUMNNAME_C_Invoice_ID, null);
+			set_Value (COLUMNNAME_C_Invoice_ID, null);
 		else
-			set_ValueNoCheck (COLUMNNAME_C_Invoice_ID, Integer.valueOf(C_Invoice_ID));
+			set_Value (COLUMNNAME_C_Invoice_ID, Integer.valueOf(C_Invoice_ID));
 	}
 
 	/** Get Invoice.
@@ -589,7 +632,7 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	*/
 	public void setInvoiceGrandTotal (BigDecimal InvoiceGrandTotal)
 	{
-		set_ValueNoCheck (COLUMNNAME_InvoiceGrandTotal, InvoiceGrandTotal);
+		set_Value (COLUMNNAME_InvoiceGrandTotal, InvoiceGrandTotal);
 	}
 
 	/** Get InvoiceGrandTotal.
@@ -600,6 +643,54 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 		if (bd == null)
 			 return Env.ZERO;
 		return bd;
+	}
+
+	/** Set Line Amount.
+		@param LineNetAmt Line Extended Amount (Quantity * Actual Price) without Freight and Charges
+	*/
+	public void setLineNetAmt (BigDecimal LineNetAmt)
+	{
+		set_ValueNoCheck (COLUMNNAME_LineNetAmt, LineNetAmt);
+	}
+
+	/** Get Line Amount.
+		@return Line Extended Amount (Quantity * Actual Price) without Freight and Charges
+	  */
+	public BigDecimal getLineNetAmt()
+	{
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_LineNetAmt);
+		if (bd == null)
+			 return Env.ZERO;
+		return bd;
+	}
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.compiere.model.I_M_InOutLine getM_InOutLine() throws RuntimeException
+	{
+		return (org.compiere.model.I_M_InOutLine)MTable.get(getCtx(), org.compiere.model.I_M_InOutLine.Table_ID)
+			.getPO(getM_InOutLine_ID(), get_TrxName());
+	}
+
+	/** Set Shipment/Receipt Line.
+		@param M_InOutLine_ID Line on Shipment or Receipt document
+	*/
+	public void setM_InOutLine_ID (int M_InOutLine_ID)
+	{
+		if (M_InOutLine_ID < 1)
+			set_ValueNoCheck (COLUMNNAME_M_InOutLine_ID, null);
+		else
+			set_ValueNoCheck (COLUMNNAME_M_InOutLine_ID, Integer.valueOf(M_InOutLine_ID));
+	}
+
+	/** Get Shipment/Receipt Line.
+		@return Line on Shipment or Receipt document
+	  */
+	public int getM_InOutLine_ID()
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_M_InOutLine_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
 	}
 
 	@Deprecated(since="13") // use better methods with cache
@@ -669,6 +760,25 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 		return (String)get_Value(COLUMNNAME_PostingStatus);
 	}
 
+	/** Set Unit Price.
+		@param PriceActual Actual Price 
+	*/
+	public void setPriceActual (BigDecimal PriceActual)
+	{
+		set_ValueNoCheck (COLUMNNAME_PriceActual, PriceActual);
+	}
+
+	/** Get Unit Price.
+		@return Actual Price 
+	  */
+	public BigDecimal getPriceActual()
+	{
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_PriceActual);
+		if (bd == null)
+			 return Env.ZERO;
+		return bd;
+	}
+
 	/** Set Processed.
 		@param Processed The document has been processed
 	*/
@@ -733,6 +843,25 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 		return false;
 	}
 
+	/** Set Quantity.
+		@param Qty Quantity
+	*/
+	public void setQty (BigDecimal Qty)
+	{
+		set_Value (COLUMNNAME_Qty, Qty);
+	}
+
+	/** Get Quantity.
+		@return Quantity
+	  */
+	public BigDecimal getQty()
+	{
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_Qty);
+		if (bd == null)
+			 return Env.ZERO;
+		return bd;
+	}
+
 	/** Set RED_AssetAdditionRequest.
 		@param RED_AssetAdditionRequest_ID RED_AssetAdditionRequest
 	*/
@@ -767,5 +896,64 @@ public class X_RED_AssetAdditionRequest extends PO implements I_RED_AssetAdditio
 	public String getRED_AssetAdditionRequest_UU()
 	{
 		return (String)get_Value(COLUMNNAME_RED_AssetAdditionRequest_UU);
+	}
+
+	@Deprecated(since="13") // use better methods with cache
+	public I_RED_InOutLineSerial getRED_InOutLineSerial() throws RuntimeException
+	{
+		return (I_RED_InOutLineSerial)MTable.get(getCtx(), I_RED_InOutLineSerial.Table_ID)
+			.getPO(getRED_InOutLineSerial_ID(), get_TrxName());
+	}
+
+	/** Set RED_InOutLineSerial.
+		@param RED_InOutLineSerial_ID RED_InOutLineSerial
+	*/
+	public void setRED_InOutLineSerial_ID (int RED_InOutLineSerial_ID)
+	{
+		if (RED_InOutLineSerial_ID < 1)
+			set_ValueNoCheck (COLUMNNAME_RED_InOutLineSerial_ID, null);
+		else
+			set_ValueNoCheck (COLUMNNAME_RED_InOutLineSerial_ID, Integer.valueOf(RED_InOutLineSerial_ID));
+	}
+
+	/** Get RED_InOutLineSerial.
+		@return RED_InOutLineSerial	  */
+	public int getRED_InOutLineSerial_ID()
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_RED_InOutLineSerial_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
+	}
+
+	/** Set Serial No.
+		@param SerNo Product Serial Number 
+	*/
+	public void setSerNo (String SerNo)
+	{
+		set_ValueNoCheck (COLUMNNAME_SerNo, SerNo);
+	}
+
+	/** Get Serial No.
+		@return Product Serial Number 
+	  */
+	public String getSerNo()
+	{
+		return (String)get_Value(COLUMNNAME_SerNo);
+	}
+
+	/** Set ViewPosting.
+		@param ViewPosting ViewPosting
+	*/
+	public void setViewPosting (String ViewPosting)
+	{
+		set_Value (COLUMNNAME_ViewPosting, ViewPosting);
+	}
+
+	/** Get ViewPosting.
+		@return ViewPosting	  */
+	public String getViewPosting()
+	{
+		return (String)get_Value(COLUMNNAME_ViewPosting);
 	}
 }
