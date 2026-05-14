@@ -34,7 +34,7 @@ public class X_RED_ProductionPlan extends PO implements I_RED_ProductionPlan, I_
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20260510L;
+	private static final long serialVersionUID = 20260514L;
 
     /** Standard Constructor */
     public X_RED_ProductionPlan (Properties ctx, int RED_ProductionPlan_ID, String trxName)

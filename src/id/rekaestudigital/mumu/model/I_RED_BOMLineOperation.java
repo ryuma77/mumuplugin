@@ -21,18 +21,18 @@ import java.sql.Timestamp;
 import org.compiere.model.*;
 import org.compiere.util.KeyNamePair;
 
-/** Generated Interface for RED_Operation
+/** Generated Interface for RED_BOMLineOperation
  *  @author iDempiere (generated) 
  *  @version Release 13
  */
 @SuppressWarnings("all")
-public interface I_RED_Operation 
+public interface I_RED_BOMLineOperation 
 {
 
-    /** TableName=RED_Operation */
-    public static final String Table_Name = "RED_Operation";
+    /** TableName=RED_BOMLineOperation */
+    public static final String Table_Name = "RED_BOMLineOperation";
 
-    /** AD_Table_ID=1000017 */
+    /** AD_Table_ID=1000026 */
     public static final int Table_ID = MTable.getTable_ID(Table_Name);
 
     KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
@@ -64,6 +64,31 @@ public interface I_RED_Operation
 	  */
 	public int getAD_Org_ID();
 
+    /** Column name AllocationType */
+    public static final String COLUMNNAME_AllocationType = "AllocationType";
+
+	/** Set AllocationType	  */
+	public void setAllocationType (String AllocationType);
+
+	/** Get AllocationType	  */
+	public String getAllocationType();
+
+    /** Column name C_UOM_ID */
+    public static final String COLUMNNAME_C_UOM_ID = "C_UOM_ID";
+
+	/** Set UOM.
+	  * Unit of Measure
+	  */
+	public void setC_UOM_ID (int C_UOM_ID);
+
+	/** Get UOM.
+	  * Unit of Measure
+	  */
+	public int getC_UOM_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException;
+
     /** Column name Created */
     public static final String COLUMNNAME_Created = "Created";
 
@@ -93,19 +118,6 @@ public interface I_RED_Operation
 	  */
 	public String getDescription();
 
-    /** Column name Help */
-    public static final String COLUMNNAME_Help = "Help";
-
-	/** Set Comment/Help.
-	  * Comment or Hint
-	  */
-	public void setHelp (String Help);
-
-	/** Get Comment/Help.
-	  * Comment or Hint
-	  */
-	public String getHelp();
-
     /** Column name IsActive */
     public static final String COLUMNNAME_IsActive = "IsActive";
 
@@ -119,27 +131,57 @@ public interface I_RED_Operation
 	  */
 	public boolean isActive();
 
-    /** Column name MachineType */
-    public static final String COLUMNNAME_MachineType = "MachineType";
+    /** Column name PP_Product_BOMLine_ID */
+    public static final String COLUMNNAME_PP_Product_BOMLine_ID = "PP_Product_BOMLine_ID";
 
-	/** Set MachineType	  */
-	public void setMachineType (String MachineType);
-
-	/** Get MachineType	  */
-	public String getMachineType();
-
-    /** Column name Name */
-    public static final String COLUMNNAME_Name = "Name";
-
-	/** Set Name.
-	  * Alphanumeric identifier of the entity
+	/** Set BOM Line.
+	  * BOM Line
 	  */
-	public void setName (String Name);
+	public void setPP_Product_BOMLine_ID (int PP_Product_BOMLine_ID);
 
-	/** Get Name.
-	  * Alphanumeric identifier of the entity
+	/** Get BOM Line.
+	  * BOM Line
 	  */
-	public String getName();
+	public int getPP_Product_BOMLine_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.eevolution.model.I_PP_Product_BOMLine getPP_Product_BOMLine() throws RuntimeException;
+
+    /** Column name PercentAllocated */
+    public static final String COLUMNNAME_PercentAllocated = "PercentAllocated";
+
+	/** Set PercentAllocated	  */
+	public void setPercentAllocated (BigDecimal PercentAllocated);
+
+	/** Get PercentAllocated	  */
+	public BigDecimal getPercentAllocated();
+
+    /** Column name QtyAllocated */
+    public static final String COLUMNNAME_QtyAllocated = "QtyAllocated";
+
+	/** Set QtyAllocated	  */
+	public void setQtyAllocated (BigDecimal QtyAllocated);
+
+	/** Get QtyAllocated	  */
+	public BigDecimal getQtyAllocated();
+
+    /** Column name RED_BOMLineOperation_ID */
+    public static final String COLUMNNAME_RED_BOMLineOperation_ID = "RED_BOMLineOperation_ID";
+
+	/** Set RED_BOMLineOperation	  */
+	public void setRED_BOMLineOperation_ID (int RED_BOMLineOperation_ID);
+
+	/** Get RED_BOMLineOperation	  */
+	public int getRED_BOMLineOperation_ID();
+
+    /** Column name RED_BOMLineOperation_UU */
+    public static final String COLUMNNAME_RED_BOMLineOperation_UU = "RED_BOMLineOperation_UU";
+
+	/** Set RED_BOMLineOperation_UU	  */
+	public void setRED_BOMLineOperation_UU (String RED_BOMLineOperation_UU);
+
+	/** Get RED_BOMLineOperation_UU	  */
+	public String getRED_BOMLineOperation_UU();
 
     /** Column name RED_Operation_ID */
     public static final String COLUMNNAME_RED_Operation_ID = "RED_Operation_ID";
@@ -150,26 +192,8 @@ public interface I_RED_Operation
 	/** Get RED_Operation	  */
 	public int getRED_Operation_ID();
 
-    /** Column name RED_Operation_UU */
-    public static final String COLUMNNAME_RED_Operation_UU = "RED_Operation_UU";
-
-	/** Set RED_Operation_UU	  */
-	public void setRED_Operation_UU (String RED_Operation_UU);
-
-	/** Get RED_Operation_UU	  */
-	public String getRED_Operation_UU();
-
-    /** Column name RED_Stage_ID */
-    public static final String COLUMNNAME_RED_Stage_ID = "RED_Stage_ID";
-
-	/** Set RED_Stage	  */
-	public void setRED_Stage_ID (int RED_Stage_ID);
-
-	/** Get RED_Stage	  */
-	public int getRED_Stage_ID();
-
 	@Deprecated(since="13") // use better methods with cache
-	public I_RED_Stage getRED_Stage() throws RuntimeException;
+	public I_RED_Operation getRED_Operation() throws RuntimeException;
 
     /** Column name SeqNo */
     public static final String COLUMNNAME_SeqNo = "SeqNo";
@@ -186,15 +210,6 @@ public interface I_RED_Operation
 	  */
 	public int getSeqNo();
 
-    /** Column name StageType */
-    public static final String COLUMNNAME_StageType = "StageType";
-
-	/** Set StageType	  */
-	public void setStageType (String StageType);
-
-	/** Get StageType	  */
-	public String getStageType();
-
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";
 
@@ -210,35 +225,4 @@ public interface I_RED_Operation
 	  * User who updated this records
 	  */
 	public int getUpdatedBy();
-
-    /** Column name Value */
-    public static final String COLUMNNAME_Value = "Value";
-
-	/** Set Search Key.
-	  * Search key for the record in the format required - must be unique
-	  */
-	public void setValue (String Value);
-
-	/** Get Search Key.
-	  * Search key for the record in the format required - must be unique
-	  */
-	public String getValue();
-
-    /** Column name isMaterialRequired */
-    public static final String COLUMNNAME_isMaterialRequired = "isMaterialRequired";
-
-	/** Set isMaterialRequired	  */
-	public void setisMaterialRequired (boolean isMaterialRequired);
-
-	/** Get isMaterialRequired	  */
-	public boolean isMaterialRequired();
-
-    /** Column name isQCRequired */
-    public static final String COLUMNNAME_isQCRequired = "isQCRequired";
-
-	/** Set isQCRequired	  */
-	public void setisQCRequired (boolean isQCRequired);
-
-	/** Get isQCRequired	  */
-	public boolean isQCRequired();
 }

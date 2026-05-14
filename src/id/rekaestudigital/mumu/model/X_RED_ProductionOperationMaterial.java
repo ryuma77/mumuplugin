@@ -33,7 +33,7 @@ public class X_RED_ProductionOperationMaterial extends PO implements I_RED_Produ
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20260510L;
+	private static final long serialVersionUID = 20260514L;
 
     /** Standard Constructor */
     public X_RED_ProductionOperationMaterial (Properties ctx, int RED_ProductionOperationMaterial_ID, String trxName)
@@ -41,6 +41,8 @@ public class X_RED_ProductionOperationMaterial extends PO implements I_RED_Produ
       super (ctx, RED_ProductionOperationMaterial_ID, trxName);
       /** if (RED_ProductionOperationMaterial_ID == 0)
         {
+			setIsGenerated (false);
+// N
 			setRED_ProductionOperationMaterial_ID (0);
 			setisOptional (false);
 // N
@@ -53,6 +55,8 @@ public class X_RED_ProductionOperationMaterial extends PO implements I_RED_Produ
       super (ctx, RED_ProductionOperationMaterial_ID, trxName, virtualColumns);
       /** if (RED_ProductionOperationMaterial_ID == 0)
         {
+			setIsGenerated (false);
+// N
 			setRED_ProductionOperationMaterial_ID (0);
 			setisOptional (false);
 // N
@@ -65,6 +69,8 @@ public class X_RED_ProductionOperationMaterial extends PO implements I_RED_Produ
       super (ctx, RED_ProductionOperationMaterial_UU, trxName);
       /** if (RED_ProductionOperationMaterial_UU == null)
         {
+			setIsGenerated (false);
+// N
 			setRED_ProductionOperationMaterial_ID (0);
 			setisOptional (false);
 // N
@@ -77,6 +83,8 @@ public class X_RED_ProductionOperationMaterial extends PO implements I_RED_Produ
       super (ctx, RED_ProductionOperationMaterial_UU, trxName, virtualColumns);
       /** if (RED_ProductionOperationMaterial_UU == null)
         {
+			setIsGenerated (false);
+// N
 			setRED_ProductionOperationMaterial_ID (0);
 			setisOptional (false);
 // N
@@ -172,6 +180,29 @@ public class X_RED_ProductionOperationMaterial extends PO implements I_RED_Produ
 		return (String)get_Value(COLUMNNAME_Help);
 	}
 
+	/** Set Generated.
+		@param IsGenerated This Line is generated
+	*/
+	public void setIsGenerated (boolean IsGenerated)
+	{
+		set_ValueNoCheck (COLUMNNAME_IsGenerated, Boolean.valueOf(IsGenerated));
+	}
+
+	/** Get Generated.
+		@return This Line is generated
+	  */
+	public boolean isGenerated()
+	{
+		Object oo = get_Value(COLUMNNAME_IsGenerated);
+		if (oo != null)
+		{
+			 if (oo instanceof Boolean)
+				 return ((Boolean)oo).booleanValue();
+			return "Y".equals(oo);
+		}
+		return false;
+	}
+
 	@Deprecated(since="13") // use better methods with cache
 	public I_M_Locator getM_Locator() throws RuntimeException
 	{
@@ -254,6 +285,57 @@ public class X_RED_ProductionOperationMaterial extends PO implements I_RED_Produ
 	public int getM_Warehouse_ID()
 	{
 		Integer ii = (Integer)get_Value(COLUMNNAME_M_Warehouse_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
+	}
+
+	/** BOM = BOM */
+	public static final String MATERIALSOURCE_BOM = "BOM";
+	/** MANUAL = MANUAL */
+	public static final String MATERIALSOURCE_MANUAL = "MANUAL";
+	/** OPERATION = OPERATION */
+	public static final String MATERIALSOURCE_OPERATION = "OPERATION";
+	/** Set MaterialSource.
+		@param MaterialSource MaterialSource
+	*/
+	public void setMaterialSource (String MaterialSource)
+	{
+
+		set_Value (COLUMNNAME_MaterialSource, MaterialSource);
+	}
+
+	/** Get MaterialSource.
+		@return MaterialSource	  */
+	public String getMaterialSource()
+	{
+		return (String)get_Value(COLUMNNAME_MaterialSource);
+	}
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.eevolution.model.I_PP_Product_BOMLine getPP_Product_BOMLine() throws RuntimeException
+	{
+		return (org.eevolution.model.I_PP_Product_BOMLine)MTable.get(getCtx(), org.eevolution.model.I_PP_Product_BOMLine.Table_ID)
+			.getPO(getPP_Product_BOMLine_ID(), get_TrxName());
+	}
+
+	/** Set BOM Line.
+		@param PP_Product_BOMLine_ID BOM Line
+	*/
+	public void setPP_Product_BOMLine_ID (int PP_Product_BOMLine_ID)
+	{
+		if (PP_Product_BOMLine_ID < 1)
+			set_Value (COLUMNNAME_PP_Product_BOMLine_ID, null);
+		else
+			set_Value (COLUMNNAME_PP_Product_BOMLine_ID, Integer.valueOf(PP_Product_BOMLine_ID));
+	}
+
+	/** Get BOM Line.
+		@return BOM Line
+	  */
+	public int getPP_Product_BOMLine_ID()
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOMLine_ID);
 		if (ii == null)
 			 return 0;
 		return ii.intValue();

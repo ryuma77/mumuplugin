@@ -34,7 +34,7 @@ public class X_RED_ProductionStage extends PO implements I_RED_ProductionStage, 
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20260510L;
+	private static final long serialVersionUID = 20260514L;
 
     /** Standard Constructor */
     public X_RED_ProductionStage (Properties ctx, int RED_ProductionStage_ID, String trxName)
@@ -287,6 +287,28 @@ public class X_RED_ProductionStage extends PO implements I_RED_ProductionStage, 
 		return ii.intValue();
 	}
 
+	/** BOM = BOM */
+	public static final String MATERIALSOURCE_BOM = "BOM";
+	/** MANUAL = MANUAL */
+	public static final String MATERIALSOURCE_MANUAL = "MANUAL";
+	/** OPERATION = OPERATION */
+	public static final String MATERIALSOURCE_OPERATION = "OPERATION";
+	/** Set MaterialSource.
+		@param MaterialSource MaterialSource
+	*/
+	public void setMaterialSource (String MaterialSource)
+	{
+
+		set_Value (COLUMNNAME_MaterialSource, MaterialSource);
+	}
+
+	/** Get MaterialSource.
+		@return MaterialSource	  */
+	public String getMaterialSource()
+	{
+		return (String)get_Value(COLUMNNAME_MaterialSource);
+	}
+
 	/** Set Name.
 		@param Name Alphanumeric identifier of the entity
 	*/
@@ -376,6 +398,24 @@ public class X_RED_ProductionStage extends PO implements I_RED_ProductionStage, 
 		return false;
 	}
 
+	/** Set ProgressPercent.
+		@param ProgressPercent ProgressPercent
+	*/
+	public void setProgressPercent (BigDecimal ProgressPercent)
+	{
+		set_Value (COLUMNNAME_ProgressPercent, ProgressPercent);
+	}
+
+	/** Get ProgressPercent.
+		@return ProgressPercent	  */
+	public BigDecimal getProgressPercent()
+	{
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_ProgressPercent);
+		if (bd == null)
+			 return Env.ZERO;
+		return bd;
+	}
+
 	/** Set QtyActual.
 		@param QtyActual QtyActual
 	*/
@@ -417,7 +457,7 @@ public class X_RED_ProductionStage extends PO implements I_RED_ProductionStage, 
 	*/
 	public void setQtyTargeted (BigDecimal QtyTargeted)
 	{
-		set_ValueNoCheck (COLUMNNAME_QtyTargeted, QtyTargeted);
+		set_Value (COLUMNNAME_QtyTargeted, QtyTargeted);
 	}
 
 	/** Get QtyTargeted.
@@ -494,6 +534,68 @@ public class X_RED_ProductionStage extends PO implements I_RED_ProductionStage, 
 		return (String)get_Value(COLUMNNAME_RED_ProductionStage_UU);
 	}
 
+	/** CANCELLED = CANCELLED */
+	public static final String RED_PRODUCTIONSTATUS_CANCELLED = "CANCELLED";
+	/** COMPLETED = COMPLETED */
+	public static final String RED_PRODUCTIONSTATUS_COMPLETED = "COMPLETED";
+	/** INPROGRESS = INPROGRESS */
+	public static final String RED_PRODUCTIONSTATUS_INPROGRESS = "INPROGRESS";
+	/** NOT STARTED = NOTSTARTED */
+	public static final String RED_PRODUCTIONSTATUS_NOTSTARTED = "NOTSTARTED";
+	/** PAUSED = PAUSED */
+	public static final String RED_PRODUCTIONSTATUS_PAUSED = "PAUSED";
+	/** READY = READY */
+	public static final String RED_PRODUCTIONSTATUS_READY = "READY";
+	/** SKIPPED = SKIPPED */
+	public static final String RED_PRODUCTIONSTATUS_SKIPPED = "SKIPPED";
+	/** WAITINGMACHINE = WAITINGMACHINE */
+	public static final String RED_PRODUCTIONSTATUS_WAITINGMACHINE = "WAITINGMACHINE";
+	/** WAITINGMATERIAL = WAITINGMATERIAL */
+	public static final String RED_PRODUCTIONSTATUS_WAITINGMATERIAL = "WAITINGMATERIAL";
+	/** Set RED_ProductionStatus.
+		@param RED_ProductionStatus RED_ProductionStatus
+	*/
+	public void setRED_ProductionStatus (String RED_ProductionStatus)
+	{
+
+		set_ValueNoCheck (COLUMNNAME_RED_ProductionStatus, RED_ProductionStatus);
+	}
+
+	/** Get RED_ProductionStatus.
+		@return RED_ProductionStatus	  */
+	public String getRED_ProductionStatus()
+	{
+		return (String)get_Value(COLUMNNAME_RED_ProductionStatus);
+	}
+
+	@Deprecated(since="13") // use better methods with cache
+	public I_RED_Stage getRED_Stage() throws RuntimeException
+	{
+		return (I_RED_Stage)MTable.get(getCtx(), I_RED_Stage.Table_ID)
+			.getPO(getRED_Stage_ID(), get_TrxName());
+	}
+
+	/** Set RED_Stage.
+		@param RED_Stage_ID RED_Stage
+	*/
+	public void setRED_Stage_ID (int RED_Stage_ID)
+	{
+		if (RED_Stage_ID < 1)
+			set_ValueNoCheck (COLUMNNAME_RED_Stage_ID, null);
+		else
+			set_ValueNoCheck (COLUMNNAME_RED_Stage_ID, Integer.valueOf(RED_Stage_ID));
+	}
+
+	/** Get RED_Stage.
+		@return RED_Stage	  */
+	public int getRED_Stage_ID()
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_RED_Stage_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
+	}
+
 	/** Set Sequence.
 		@param SeqNo Method of ordering records; lowest number comes first
 	*/
@@ -549,41 +651,6 @@ public class X_RED_ProductionStage extends PO implements I_RED_ProductionStage, 
 	public Timestamp getStartDate()
 	{
 		return (Timestamp)get_Value(COLUMNNAME_StartDate);
-	}
-
-	/** CANCELLED = CANCELLED */
-	public static final String STATUS_CANCELLED = "CANCELLED";
-	/** COMPLETED = COMPLETED */
-	public static final String STATUS_COMPLETED = "COMPLETED";
-	/** INPROGRESS = INPROGRESS */
-	public static final String STATUS_INPROGRESS = "INPROGRESS";
-	/** NOT STARTED = NOTSTARTED */
-	public static final String STATUS_NOTSTARTED = "NOTSTARTED";
-	/** PAUSED = PAUSED */
-	public static final String STATUS_PAUSED = "PAUSED";
-	/** READY = READY */
-	public static final String STATUS_READY = "READY";
-	/** SKIPPED = SKIPPED */
-	public static final String STATUS_SKIPPED = "SKIPPED";
-	/** WAITINGMACHINE = WAITINGMACHINE */
-	public static final String STATUS_WAITINGMACHINE = "WAITINGMACHINE";
-	/** WAITINGMATERIAL = WAITINGMATERIAL */
-	public static final String STATUS_WAITINGMATERIAL = "WAITINGMATERIAL";
-	/** Set Status.
-		@param Status Status of the currently running check
-	*/
-	public void setStatus (String Status)
-	{
-
-		set_ValueNoCheck (COLUMNNAME_Status, Status);
-	}
-
-	/** Get Status.
-		@return Status of the currently running check
-	  */
-	public String getStatus()
-	{
-		return (String)get_Value(COLUMNNAME_Status);
 	}
 
 	/** Set Search Key.

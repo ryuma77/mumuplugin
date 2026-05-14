@@ -34,7 +34,7 @@ public class X_RED_ProductionOperation extends PO implements I_RED_ProductionOpe
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20260510L;
+	private static final long serialVersionUID = 20260514L;
 
     /** Standard Constructor */
     public X_RED_ProductionOperation (Properties ctx, int RED_ProductionOperation_ID, String trxName)
@@ -293,6 +293,24 @@ public class X_RED_ProductionOperation extends PO implements I_RED_ProductionOpe
 		return false;
 	}
 
+	/** Set ProgressPercent.
+		@param ProgressPercent ProgressPercent
+	*/
+	public void setProgressPercent (BigDecimal ProgressPercent)
+	{
+		set_Value (COLUMNNAME_ProgressPercent, ProgressPercent);
+	}
+
+	/** Get ProgressPercent.
+		@return ProgressPercent	  */
+	public BigDecimal getProgressPercent()
+	{
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_ProgressPercent);
+		if (bd == null)
+			 return Env.ZERO;
+		return bd;
+	}
+
 	/** Set QtyActual.
 		@param QtyActual QtyActual
 	*/
@@ -316,7 +334,7 @@ public class X_RED_ProductionOperation extends PO implements I_RED_ProductionOpe
 	*/
 	public void setQtyTargeted (BigDecimal QtyTargeted)
 	{
-		set_ValueNoCheck (COLUMNNAME_QtyTargeted, QtyTargeted);
+		set_Value (COLUMNNAME_QtyTargeted, QtyTargeted);
 	}
 
 	/** Get QtyTargeted.
@@ -449,6 +467,40 @@ public class X_RED_ProductionOperation extends PO implements I_RED_ProductionOpe
 		return ii.intValue();
 	}
 
+	/** CANCELLED = CANCELLED */
+	public static final String RED_PRODUCTIONSTATUS_CANCELLED = "CANCELLED";
+	/** COMPLETED = COMPLETED */
+	public static final String RED_PRODUCTIONSTATUS_COMPLETED = "COMPLETED";
+	/** INPROGRESS = INPROGRESS */
+	public static final String RED_PRODUCTIONSTATUS_INPROGRESS = "INPROGRESS";
+	/** NOT STARTED = NOTSTARTED */
+	public static final String RED_PRODUCTIONSTATUS_NOTSTARTED = "NOTSTARTED";
+	/** PAUSED = PAUSED */
+	public static final String RED_PRODUCTIONSTATUS_PAUSED = "PAUSED";
+	/** READY = READY */
+	public static final String RED_PRODUCTIONSTATUS_READY = "READY";
+	/** SKIPPED = SKIPPED */
+	public static final String RED_PRODUCTIONSTATUS_SKIPPED = "SKIPPED";
+	/** WAITINGMACHINE = WAITINGMACHINE */
+	public static final String RED_PRODUCTIONSTATUS_WAITINGMACHINE = "WAITINGMACHINE";
+	/** WAITINGMATERIAL = WAITINGMATERIAL */
+	public static final String RED_PRODUCTIONSTATUS_WAITINGMATERIAL = "WAITINGMATERIAL";
+	/** Set RED_ProductionStatus.
+		@param RED_ProductionStatus RED_ProductionStatus
+	*/
+	public void setRED_ProductionStatus (String RED_ProductionStatus)
+	{
+
+		set_ValueNoCheck (COLUMNNAME_RED_ProductionStatus, RED_ProductionStatus);
+	}
+
+	/** Get RED_ProductionStatus.
+		@return RED_ProductionStatus	  */
+	public String getRED_ProductionStatus()
+	{
+		return (String)get_Value(COLUMNNAME_RED_ProductionStatus);
+	}
+
 	/** Set Remarks.
 		@param Remarks Remarks
 	*/
@@ -497,31 +549,6 @@ public class X_RED_ProductionOperation extends PO implements I_RED_ProductionOpe
 	public Timestamp getStartDate()
 	{
 		return (Timestamp)get_Value(COLUMNNAME_StartDate);
-	}
-
-	/** Status AD_Reference_ID=53239 */
-	public static final int STATUS_AD_Reference_ID=53239;
-	/** Completed = CO */
-	public static final String STATUS_Completed = "CO";
-	/** Error = ER */
-	public static final String STATUS_Error = "ER";
-	/** In Progress = IP */
-	public static final String STATUS_InProgress = "IP";
-	/** Set Status.
-		@param Status Status of the currently running check
-	*/
-	public void setStatus (String Status)
-	{
-
-		set_ValueNoCheck (COLUMNNAME_Status, Status);
-	}
-
-	/** Get Status.
-		@return Status of the currently running check
-	  */
-	public String getStatus()
-	{
-		return (String)get_Value(COLUMNNAME_Status);
 	}
 
 	/** Set Search Key.

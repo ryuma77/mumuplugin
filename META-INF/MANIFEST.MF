@@ -16,7 +16,8 @@ Require-Bundle: org.adempiere.base,
  org.osgi.service.event,
  org.adempiere.ui.zk,
  org.adempiere.base.callout,
- org.osgi.service.component.annotations;bundle-version="1.5.1"
+ org.osgi.service.component.annotations;bundle-version="1.5.1",
+ zul
 Import-Package: org.adempiere.webui.panel,
  org.zkoss.zk.ui,
  org.zkoss.zk.ui.event,

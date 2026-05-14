@@ -23,11 +23,11 @@ import java.util.Properties;
 import org.compiere.model.*;
 import org.compiere.util.Env;
 
-/** Generated Model for RED_OperationMaterial
+/** Generated Model for RED_BOMLineOperation
  *  @author iDempiere (generated)
  *  @version Release 13 - $Id$ */
-@org.adempiere.base.Model(table="RED_OperationMaterial")
-public class X_RED_OperationMaterial extends PO implements I_RED_OperationMaterial, I_Persistent
+@org.adempiere.base.Model(table="RED_BOMLineOperation")
+public class X_RED_BOMLineOperation extends PO implements I_RED_BOMLineOperation, I_Persistent
 {
 
 	/**
@@ -36,55 +36,47 @@ public class X_RED_OperationMaterial extends PO implements I_RED_OperationMateri
 	private static final long serialVersionUID = 20260514L;
 
     /** Standard Constructor */
-    public X_RED_OperationMaterial (Properties ctx, int RED_OperationMaterial_ID, String trxName)
+    public X_RED_BOMLineOperation (Properties ctx, int RED_BOMLineOperation_ID, String trxName)
     {
-      super (ctx, RED_OperationMaterial_ID, trxName);
-      /** if (RED_OperationMaterial_ID == 0)
+      super (ctx, RED_BOMLineOperation_ID, trxName);
+      /** if (RED_BOMLineOperation_ID == 0)
         {
-			setRED_OperationMaterial_ID (0);
-			setisOptional (false);
-// N
+			setRED_BOMLineOperation_ID (0);
         } */
     }
 
     /** Standard Constructor */
-    public X_RED_OperationMaterial (Properties ctx, int RED_OperationMaterial_ID, String trxName, String ... virtualColumns)
+    public X_RED_BOMLineOperation (Properties ctx, int RED_BOMLineOperation_ID, String trxName, String ... virtualColumns)
     {
-      super (ctx, RED_OperationMaterial_ID, trxName, virtualColumns);
-      /** if (RED_OperationMaterial_ID == 0)
+      super (ctx, RED_BOMLineOperation_ID, trxName, virtualColumns);
+      /** if (RED_BOMLineOperation_ID == 0)
         {
-			setRED_OperationMaterial_ID (0);
-			setisOptional (false);
-// N
+			setRED_BOMLineOperation_ID (0);
         } */
     }
 
     /** Standard Constructor */
-    public X_RED_OperationMaterial (Properties ctx, String RED_OperationMaterial_UU, String trxName)
+    public X_RED_BOMLineOperation (Properties ctx, String RED_BOMLineOperation_UU, String trxName)
     {
-      super (ctx, RED_OperationMaterial_UU, trxName);
-      /** if (RED_OperationMaterial_UU == null)
+      super (ctx, RED_BOMLineOperation_UU, trxName);
+      /** if (RED_BOMLineOperation_UU == null)
         {
-			setRED_OperationMaterial_ID (0);
-			setisOptional (false);
-// N
+			setRED_BOMLineOperation_ID (0);
         } */
     }
 
     /** Standard Constructor */
-    public X_RED_OperationMaterial (Properties ctx, String RED_OperationMaterial_UU, String trxName, String ... virtualColumns)
+    public X_RED_BOMLineOperation (Properties ctx, String RED_BOMLineOperation_UU, String trxName, String ... virtualColumns)
     {
-      super (ctx, RED_OperationMaterial_UU, trxName, virtualColumns);
-      /** if (RED_OperationMaterial_UU == null)
+      super (ctx, RED_BOMLineOperation_UU, trxName, virtualColumns);
+      /** if (RED_BOMLineOperation_UU == null)
         {
-			setRED_OperationMaterial_ID (0);
-			setisOptional (false);
-// N
+			setRED_BOMLineOperation_ID (0);
         } */
     }
 
     /** Load Constructor */
-    public X_RED_OperationMaterial (Properties ctx, ResultSet rs, String trxName)
+    public X_RED_BOMLineOperation (Properties ctx, ResultSet rs, String trxName)
     {
       super (ctx, rs, trxName);
     }
@@ -106,10 +98,25 @@ public class X_RED_OperationMaterial extends PO implements I_RED_OperationMateri
 
     public String toString()
     {
-      StringBuilder sb = new StringBuilder ("X_RED_OperationMaterial[")
+      StringBuilder sb = new StringBuilder ("X_RED_BOMLineOperation[")
         .append(get_ID()).append("]");
       return sb.toString();
     }
+
+	/** Set AllocationType.
+		@param AllocationType AllocationType
+	*/
+	public void setAllocationType (String AllocationType)
+	{
+		set_Value (COLUMNNAME_AllocationType, AllocationType);
+	}
+
+	/** Get AllocationType.
+		@return AllocationType	  */
+	public String getAllocationType()
+	{
+		return (String)get_Value(COLUMNNAME_AllocationType);
+	}
 
 	@Deprecated(since="13") // use better methods with cache
 	public org.compiere.model.I_C_UOM getC_UOM() throws RuntimeException
@@ -156,103 +163,105 @@ public class X_RED_OperationMaterial extends PO implements I_RED_OperationMateri
 		return (String)get_Value(COLUMNNAME_Description);
 	}
 
-	/** Set Comment/Help.
-		@param Help Comment or Hint
-	*/
-	public void setHelp (String Help)
-	{
-		set_Value (COLUMNNAME_Help, Help);
-	}
-
-	/** Get Comment/Help.
-		@return Comment or Hint
-	  */
-	public String getHelp()
-	{
-		return (String)get_Value(COLUMNNAME_Help);
-	}
-
 	@Deprecated(since="13") // use better methods with cache
-	public org.compiere.model.I_M_Product getM_Product() throws RuntimeException
+	public org.eevolution.model.I_PP_Product_BOMLine getPP_Product_BOMLine() throws RuntimeException
 	{
-		return (org.compiere.model.I_M_Product)MTable.get(getCtx(), org.compiere.model.I_M_Product.Table_ID)
-			.getPO(getM_Product_ID(), get_TrxName());
+		return (org.eevolution.model.I_PP_Product_BOMLine)MTable.get(getCtx(), org.eevolution.model.I_PP_Product_BOMLine.Table_ID)
+			.getPO(getPP_Product_BOMLine_ID(), get_TrxName());
 	}
 
-	/** Set Product.
-		@param M_Product_ID Product, Service, Item
+	/** Set BOM Line.
+		@param PP_Product_BOMLine_ID BOM Line
 	*/
-	public void setM_Product_ID (int M_Product_ID)
+	public void setPP_Product_BOMLine_ID (int PP_Product_BOMLine_ID)
 	{
-		if (M_Product_ID < 1)
-			set_Value (COLUMNNAME_M_Product_ID, null);
+		if (PP_Product_BOMLine_ID < 1)
+			set_Value (COLUMNNAME_PP_Product_BOMLine_ID, null);
 		else
-			set_Value (COLUMNNAME_M_Product_ID, Integer.valueOf(M_Product_ID));
+			set_Value (COLUMNNAME_PP_Product_BOMLine_ID, Integer.valueOf(PP_Product_BOMLine_ID));
 	}
 
-	/** Get Product.
-		@return Product, Service, Item
+	/** Get BOM Line.
+		@return BOM Line
 	  */
-	public int getM_Product_ID()
+	public int getPP_Product_BOMLine_ID()
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_M_Product_ID);
+		Integer ii = (Integer)get_Value(COLUMNNAME_PP_Product_BOMLine_ID);
 		if (ii == null)
 			 return 0;
 		return ii.intValue();
 	}
 
-	/** Set Qty Required.
-		@param QtyRequiered Qty Required
+	/** Set PercentAllocated.
+		@param PercentAllocated PercentAllocated
 	*/
-	public void setQtyRequiered (BigDecimal QtyRequiered)
+	public void setPercentAllocated (BigDecimal PercentAllocated)
 	{
-		set_Value (COLUMNNAME_QtyRequiered, QtyRequiered);
+		set_Value (COLUMNNAME_PercentAllocated, PercentAllocated);
 	}
 
-	/** Get Qty Required.
-		@return Qty Required	  */
-	public BigDecimal getQtyRequiered()
+	/** Get PercentAllocated.
+		@return PercentAllocated	  */
+	public BigDecimal getPercentAllocated()
 	{
-		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_QtyRequiered);
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_PercentAllocated);
 		if (bd == null)
 			 return Env.ZERO;
 		return bd;
 	}
 
-	/** Set RED_OperationMaterial.
-		@param RED_OperationMaterial_ID RED_OperationMaterial
+	/** Set QtyAllocated.
+		@param QtyAllocated QtyAllocated
 	*/
-	public void setRED_OperationMaterial_ID (int RED_OperationMaterial_ID)
+	public void setQtyAllocated (BigDecimal QtyAllocated)
 	{
-		if (RED_OperationMaterial_ID < 1)
-			set_ValueNoCheck (COLUMNNAME_RED_OperationMaterial_ID, null);
-		else
-			set_ValueNoCheck (COLUMNNAME_RED_OperationMaterial_ID, Integer.valueOf(RED_OperationMaterial_ID));
+		set_Value (COLUMNNAME_QtyAllocated, QtyAllocated);
 	}
 
-	/** Get RED_OperationMaterial.
-		@return RED_OperationMaterial	  */
-	public int getRED_OperationMaterial_ID()
+	/** Get QtyAllocated.
+		@return QtyAllocated	  */
+	public BigDecimal getQtyAllocated()
 	{
-		Integer ii = (Integer)get_Value(COLUMNNAME_RED_OperationMaterial_ID);
+		BigDecimal bd = (BigDecimal)get_Value(COLUMNNAME_QtyAllocated);
+		if (bd == null)
+			 return Env.ZERO;
+		return bd;
+	}
+
+	/** Set RED_BOMLineOperation.
+		@param RED_BOMLineOperation_ID RED_BOMLineOperation
+	*/
+	public void setRED_BOMLineOperation_ID (int RED_BOMLineOperation_ID)
+	{
+		if (RED_BOMLineOperation_ID < 1)
+			set_ValueNoCheck (COLUMNNAME_RED_BOMLineOperation_ID, null);
+		else
+			set_ValueNoCheck (COLUMNNAME_RED_BOMLineOperation_ID, Integer.valueOf(RED_BOMLineOperation_ID));
+	}
+
+	/** Get RED_BOMLineOperation.
+		@return RED_BOMLineOperation	  */
+	public int getRED_BOMLineOperation_ID()
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_RED_BOMLineOperation_ID);
 		if (ii == null)
 			 return 0;
 		return ii.intValue();
 	}
 
-	/** Set RED_OperationMaterial_UU.
-		@param RED_OperationMaterial_UU RED_OperationMaterial_UU
+	/** Set RED_BOMLineOperation_UU.
+		@param RED_BOMLineOperation_UU RED_BOMLineOperation_UU
 	*/
-	public void setRED_OperationMaterial_UU (String RED_OperationMaterial_UU)
+	public void setRED_BOMLineOperation_UU (String RED_BOMLineOperation_UU)
 	{
-		set_Value (COLUMNNAME_RED_OperationMaterial_UU, RED_OperationMaterial_UU);
+		set_Value (COLUMNNAME_RED_BOMLineOperation_UU, RED_BOMLineOperation_UU);
 	}
 
-	/** Get RED_OperationMaterial_UU.
-		@return RED_OperationMaterial_UU	  */
-	public String getRED_OperationMaterial_UU()
+	/** Get RED_BOMLineOperation_UU.
+		@return RED_BOMLineOperation_UU	  */
+	public String getRED_BOMLineOperation_UU()
 	{
-		return (String)get_Value(COLUMNNAME_RED_OperationMaterial_UU);
+		return (String)get_Value(COLUMNNAME_RED_BOMLineOperation_UU);
 	}
 
 	@Deprecated(since="13") // use better methods with cache
@@ -283,25 +292,22 @@ public class X_RED_OperationMaterial extends PO implements I_RED_OperationMateri
 		return ii.intValue();
 	}
 
-	/** Set isOptional.
-		@param isOptional isOptional
+	/** Set Sequence.
+		@param SeqNo Method of ordering records; lowest number comes first
 	*/
-	public void setisOptional (boolean isOptional)
+	public void setSeqNo (int SeqNo)
 	{
-		set_Value (COLUMNNAME_isOptional, Boolean.valueOf(isOptional));
+		set_Value (COLUMNNAME_SeqNo, Integer.valueOf(SeqNo));
 	}
 
-	/** Get isOptional.
-		@return isOptional	  */
-	public boolean isOptional()
+	/** Get Sequence.
+		@return Method of ordering records; lowest number comes first
+	  */
+	public int getSeqNo()
 	{
-		Object oo = get_Value(COLUMNNAME_isOptional);
-		if (oo != null)
-		{
-			 if (oo instanceof Boolean)
-				 return ((Boolean)oo).booleanValue();
-			return "Y".equals(oo);
-		}
-		return false;
+		Integer ii = (Integer)get_Value(COLUMNNAME_SeqNo);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
 	}
 }

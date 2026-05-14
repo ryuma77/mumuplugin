@@ -192,6 +192,15 @@ public interface I_RED_ProductionStage
 	@Deprecated(since="13") // use better methods with cache
 	public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException;
 
+    /** Column name MaterialSource */
+    public static final String COLUMNNAME_MaterialSource = "MaterialSource";
+
+	/** Set MaterialSource	  */
+	public void setMaterialSource (String MaterialSource);
+
+	/** Get MaterialSource	  */
+	public String getMaterialSource();
+
     /** Column name Name */
     public static final String COLUMNNAME_Name = "Name";
 
@@ -238,6 +247,15 @@ public interface I_RED_ProductionStage
 
 	/** Get Process Now	  */
 	public boolean isProcessing();
+
+    /** Column name ProgressPercent */
+    public static final String COLUMNNAME_ProgressPercent = "ProgressPercent";
+
+	/** Set ProgressPercent	  */
+	public void setProgressPercent (BigDecimal ProgressPercent);
+
+	/** Get ProgressPercent	  */
+	public BigDecimal getProgressPercent();
 
     /** Column name QtyActual */
     public static final String COLUMNNAME_QtyActual = "QtyActual";
@@ -296,6 +314,27 @@ public interface I_RED_ProductionStage
 	/** Get RED_ProductionStage_UU	  */
 	public String getRED_ProductionStage_UU();
 
+    /** Column name RED_ProductionStatus */
+    public static final String COLUMNNAME_RED_ProductionStatus = "RED_ProductionStatus";
+
+	/** Set RED_ProductionStatus	  */
+	public void setRED_ProductionStatus (String RED_ProductionStatus);
+
+	/** Get RED_ProductionStatus	  */
+	public String getRED_ProductionStatus();
+
+    /** Column name RED_Stage_ID */
+    public static final String COLUMNNAME_RED_Stage_ID = "RED_Stage_ID";
+
+	/** Set RED_Stage	  */
+	public void setRED_Stage_ID (int RED_Stage_ID);
+
+	/** Get RED_Stage	  */
+	public int getRED_Stage_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public I_RED_Stage getRED_Stage() throws RuntimeException;
+
     /** Column name SeqNo */
     public static final String COLUMNNAME_SeqNo = "SeqNo";
 
@@ -332,19 +371,6 @@ public interface I_RED_ProductionStage
 	  * First effective day (inclusive)
 	  */
 	public Timestamp getStartDate();
-
-    /** Column name Status */
-    public static final String COLUMNNAME_Status = "Status";
-
-	/** Set Status.
-	  * Status of the currently running check
-	  */
-	public void setStatus (String Status);
-
-	/** Get Status.
-	  * Status of the currently running check
-	  */
-	public String getStatus();
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";

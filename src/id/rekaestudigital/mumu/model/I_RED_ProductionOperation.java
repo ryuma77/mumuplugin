@@ -192,6 +192,15 @@ public interface I_RED_ProductionOperation
 	/** Get Process Now	  */
 	public boolean isProcessing();
 
+    /** Column name ProgressPercent */
+    public static final String COLUMNNAME_ProgressPercent = "ProgressPercent";
+
+	/** Set ProgressPercent	  */
+	public void setProgressPercent (BigDecimal ProgressPercent);
+
+	/** Get ProgressPercent	  */
+	public BigDecimal getProgressPercent();
+
     /** Column name QtyActual */
     public static final String COLUMNNAME_QtyActual = "QtyActual";
 
@@ -264,6 +273,15 @@ public interface I_RED_ProductionOperation
 	@Deprecated(since="13") // use better methods with cache
 	public I_RED_ProductionStage getRED_ProductionStage() throws RuntimeException;
 
+    /** Column name RED_ProductionStatus */
+    public static final String COLUMNNAME_RED_ProductionStatus = "RED_ProductionStatus";
+
+	/** Set RED_ProductionStatus	  */
+	public void setRED_ProductionStatus (String RED_ProductionStatus);
+
+	/** Get RED_ProductionStatus	  */
+	public String getRED_ProductionStatus();
+
     /** Column name Remarks */
     public static final String COLUMNNAME_Remarks = "Remarks";
 
@@ -300,19 +318,6 @@ public interface I_RED_ProductionOperation
 	  * First effective day (inclusive)
 	  */
 	public Timestamp getStartDate();
-
-    /** Column name Status */
-    public static final String COLUMNNAME_Status = "Status";
-
-	/** Set Status.
-	  * Status of the currently running check
-	  */
-	public void setStatus (String Status);
-
-	/** Get Status.
-	  * Status of the currently running check
-	  */
-	public String getStatus();
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";

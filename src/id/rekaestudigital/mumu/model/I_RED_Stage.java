@@ -21,18 +21,18 @@ import java.sql.Timestamp;
 import org.compiere.model.*;
 import org.compiere.util.KeyNamePair;
 
-/** Generated Interface for RED_Operation
+/** Generated Interface for RED_Stage
  *  @author iDempiere (generated) 
  *  @version Release 13
  */
 @SuppressWarnings("all")
-public interface I_RED_Operation 
+public interface I_RED_Stage 
 {
 
-    /** TableName=RED_Operation */
-    public static final String Table_Name = "RED_Operation";
+    /** TableName=RED_Stage */
+    public static final String Table_Name = "RED_Stage";
 
-    /** AD_Table_ID=1000017 */
+    /** AD_Table_ID=1000025 */
     public static final int Table_ID = MTable.getTable_ID(Table_Name);
 
     KeyNamePair Model = new KeyNamePair(Table_ID, Table_Name);
@@ -93,19 +93,6 @@ public interface I_RED_Operation
 	  */
 	public String getDescription();
 
-    /** Column name Help */
-    public static final String COLUMNNAME_Help = "Help";
-
-	/** Set Comment/Help.
-	  * Comment or Hint
-	  */
-	public void setHelp (String Help);
-
-	/** Get Comment/Help.
-	  * Comment or Hint
-	  */
-	public String getHelp();
-
     /** Column name IsActive */
     public static final String COLUMNNAME_IsActive = "IsActive";
 
@@ -119,14 +106,31 @@ public interface I_RED_Operation
 	  */
 	public boolean isActive();
 
-    /** Column name MachineType */
-    public static final String COLUMNNAME_MachineType = "MachineType";
+    /** Column name IsDefault */
+    public static final String COLUMNNAME_IsDefault = "IsDefault";
 
-	/** Set MachineType	  */
-	public void setMachineType (String MachineType);
+	/** Set Default.
+	  * Default value
+	  */
+	public void setIsDefault (boolean IsDefault);
 
-	/** Get MachineType	  */
-	public String getMachineType();
+	/** Get Default.
+	  * Default value
+	  */
+	public boolean isDefault();
+
+    /** Column name IsMandatory */
+    public static final String COLUMNNAME_IsMandatory = "IsMandatory";
+
+	/** Set Mandatory.
+	  * Data entry is required in this column
+	  */
+	public void setIsMandatory (boolean IsMandatory);
+
+	/** Get Mandatory.
+	  * Data entry is required in this column
+	  */
+	public boolean isMandatory();
 
     /** Column name Name */
     public static final String COLUMNNAME_Name = "Name";
@@ -141,24 +145,6 @@ public interface I_RED_Operation
 	  */
 	public String getName();
 
-    /** Column name RED_Operation_ID */
-    public static final String COLUMNNAME_RED_Operation_ID = "RED_Operation_ID";
-
-	/** Set RED_Operation	  */
-	public void setRED_Operation_ID (int RED_Operation_ID);
-
-	/** Get RED_Operation	  */
-	public int getRED_Operation_ID();
-
-    /** Column name RED_Operation_UU */
-    public static final String COLUMNNAME_RED_Operation_UU = "RED_Operation_UU";
-
-	/** Set RED_Operation_UU	  */
-	public void setRED_Operation_UU (String RED_Operation_UU);
-
-	/** Get RED_Operation_UU	  */
-	public String getRED_Operation_UU();
-
     /** Column name RED_Stage_ID */
     public static final String COLUMNNAME_RED_Stage_ID = "RED_Stage_ID";
 
@@ -168,8 +154,14 @@ public interface I_RED_Operation
 	/** Get RED_Stage	  */
 	public int getRED_Stage_ID();
 
-	@Deprecated(since="13") // use better methods with cache
-	public I_RED_Stage getRED_Stage() throws RuntimeException;
+    /** Column name RED_Stage_UU */
+    public static final String COLUMNNAME_RED_Stage_UU = "RED_Stage_UU";
+
+	/** Set RED_Stage_UU	  */
+	public void setRED_Stage_UU (String RED_Stage_UU);
+
+	/** Get RED_Stage_UU	  */
+	public String getRED_Stage_UU();
 
     /** Column name SeqNo */
     public static final String COLUMNNAME_SeqNo = "SeqNo";
@@ -185,15 +177,6 @@ public interface I_RED_Operation
  lowest number comes first
 	  */
 	public int getSeqNo();
-
-    /** Column name StageType */
-    public static final String COLUMNNAME_StageType = "StageType";
-
-	/** Set StageType	  */
-	public void setStageType (String StageType);
-
-	/** Get StageType	  */
-	public String getStageType();
 
     /** Column name Updated */
     public static final String COLUMNNAME_Updated = "Updated";
@@ -223,22 +206,4 @@ public interface I_RED_Operation
 	  * Search key for the record in the format required - must be unique
 	  */
 	public String getValue();
-
-    /** Column name isMaterialRequired */
-    public static final String COLUMNNAME_isMaterialRequired = "isMaterialRequired";
-
-	/** Set isMaterialRequired	  */
-	public void setisMaterialRequired (boolean isMaterialRequired);
-
-	/** Get isMaterialRequired	  */
-	public boolean isMaterialRequired();
-
-    /** Column name isQCRequired */
-    public static final String COLUMNNAME_isQCRequired = "isQCRequired";
-
-	/** Set isQCRequired	  */
-	public void setisQCRequired (boolean isQCRequired);
-
-	/** Get isQCRequired	  */
-	public boolean isQCRequired();
 }

@@ -31,7 +31,7 @@ public class X_RED_Operation extends PO implements I_RED_Operation, I_Persistent
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20260510L;
+	private static final long serialVersionUID = 20260514L;
 
     /** Standard Constructor */
     public X_RED_Operation (Properties ctx, int RED_Operation_ID, String trxName)
@@ -235,6 +235,34 @@ public class X_RED_Operation extends PO implements I_RED_Operation, I_Persistent
 	public String getRED_Operation_UU()
 	{
 		return (String)get_Value(COLUMNNAME_RED_Operation_UU);
+	}
+
+	@Deprecated(since="13") // use better methods with cache
+	public I_RED_Stage getRED_Stage() throws RuntimeException
+	{
+		return (I_RED_Stage)MTable.get(getCtx(), I_RED_Stage.Table_ID)
+			.getPO(getRED_Stage_ID(), get_TrxName());
+	}
+
+	/** Set RED_Stage.
+		@param RED_Stage_ID RED_Stage
+	*/
+	public void setRED_Stage_ID (int RED_Stage_ID)
+	{
+		if (RED_Stage_ID < 1)
+			set_ValueNoCheck (COLUMNNAME_RED_Stage_ID, null);
+		else
+			set_ValueNoCheck (COLUMNNAME_RED_Stage_ID, Integer.valueOf(RED_Stage_ID));
+	}
+
+	/** Get RED_Stage.
+		@return RED_Stage	  */
+	public int getRED_Stage_ID()
+	{
+		Integer ii = (Integer)get_Value(COLUMNNAME_RED_Stage_ID);
+		if (ii == null)
+			 return 0;
+		return ii.intValue();
 	}
 
 	/** Set Sequence.

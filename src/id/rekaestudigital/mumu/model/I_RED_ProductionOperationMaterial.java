@@ -135,6 +135,19 @@ public interface I_RED_ProductionOperationMaterial
 	  */
 	public boolean isActive();
 
+    /** Column name IsGenerated */
+    public static final String COLUMNNAME_IsGenerated = "IsGenerated";
+
+	/** Set Generated.
+	  * This Line is generated
+	  */
+	public void setIsGenerated (boolean IsGenerated);
+
+	/** Get Generated.
+	  * This Line is generated
+	  */
+	public boolean isGenerated();
+
     /** Column name M_Locator_ID */
     public static final String COLUMNNAME_M_Locator_ID = "M_Locator_ID";
 
@@ -182,6 +195,31 @@ public interface I_RED_ProductionOperationMaterial
 
 	@Deprecated(since="13") // use better methods with cache
 	public org.compiere.model.I_M_Warehouse getM_Warehouse() throws RuntimeException;
+
+    /** Column name MaterialSource */
+    public static final String COLUMNNAME_MaterialSource = "MaterialSource";
+
+	/** Set MaterialSource	  */
+	public void setMaterialSource (String MaterialSource);
+
+	/** Get MaterialSource	  */
+	public String getMaterialSource();
+
+    /** Column name PP_Product_BOMLine_ID */
+    public static final String COLUMNNAME_PP_Product_BOMLine_ID = "PP_Product_BOMLine_ID";
+
+	/** Set BOM Line.
+	  * BOM Line
+	  */
+	public void setPP_Product_BOMLine_ID (int PP_Product_BOMLine_ID);
+
+	/** Get BOM Line.
+	  * BOM Line
+	  */
+	public int getPP_Product_BOMLine_ID();
+
+	@Deprecated(since="13") // use better methods with cache
+	public org.eevolution.model.I_PP_Product_BOMLine getPP_Product_BOMLine() throws RuntimeException;
 
     /** Column name QtyConsumed */
     public static final String COLUMNNAME_QtyConsumed = "QtyConsumed";

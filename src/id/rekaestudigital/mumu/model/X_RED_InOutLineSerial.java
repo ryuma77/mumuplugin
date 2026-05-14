@@ -31,7 +31,7 @@ public class X_RED_InOutLineSerial extends PO implements I_RED_InOutLineSerial, 
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 20260513L;
+	private static final long serialVersionUID = 20260514L;
 
     /** Standard Constructor */
     public X_RED_InOutLineSerial (Properties ctx, int RED_InOutLineSerial_ID, String trxName)

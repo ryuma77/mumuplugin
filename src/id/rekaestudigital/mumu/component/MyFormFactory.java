@@ -4,6 +4,7 @@ import org.adempiere.webui.factory.IFormFactory;
 import org.adempiere.webui.panel.ADForm;
 
 import id.rekaestudigital.mumu.form.WAssetRegisterFromInvoice;
+import id.rekaestudigital.mumu.form.WGenerateProductionStage;
 import id.rekaestudigital.mumu.form.WProductionFlowViewer;
 import id.rekaestudigital.mumu.form.WProductionKanbanViewer;
 
@@ -25,6 +26,10 @@ public class MyFormFactory implements IFormFactory {
         
         if ("id.rekaestudigital.mumu.form.WAssetRegisterFromInvoice".equals(formName)) {
             return new WAssetRegisterFromInvoice();
+        }
+        
+        if ("id.rekaestudigital.mumu.form.WGenerateProductionStage".equals(formName)) {
+            return new WGenerateProductionStage();
         }
 
         return null;
